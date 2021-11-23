@@ -1,0 +1,31 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /ecommerce-nacos-client
+spring:
+  application:
+    name: e-commerce-nacos-client
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 110.42.251.10:8848
+        namespace: 4bae180f-4b87-4ac7-9ef9-e719158dd7a4
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+      config:
+        server-addr: 110.42.251.10:8848
+        enabled: true
+        namespace: 4bae180f-4b87-4ac7-9ef9-e719158dd7a4
+        file-extension: yaml
+
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
