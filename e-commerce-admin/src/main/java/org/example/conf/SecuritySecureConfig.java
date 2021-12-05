@@ -9,6 +9,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 /**
  * 配置安全认证以便其他的微服务可以注册
+ * @author zhouguobing
  */
 @Configuration
 public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {

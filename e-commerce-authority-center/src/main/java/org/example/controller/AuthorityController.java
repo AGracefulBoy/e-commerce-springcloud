@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 对外暴露的授权服务接口
+ * @author zhouguobing
  */
 @RestController
 @Slf4j
