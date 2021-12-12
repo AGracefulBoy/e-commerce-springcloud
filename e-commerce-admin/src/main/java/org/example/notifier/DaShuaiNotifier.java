@@ -9,14 +9,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
 
 /**
  * 自定义告警
  * */
 @Slf4j
-@Component
-@SuppressWarnings("all")
+//@Component
+//@SuppressWarnings("all")
 public class DaShuaiNotifier extends AbstractEventNotifier {
     public DaShuaiNotifier(InstanceRepository repository) {
         super(repository);

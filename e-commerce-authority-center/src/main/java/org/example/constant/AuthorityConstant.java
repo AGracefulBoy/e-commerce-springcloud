@@ -1,7 +1,5 @@
 package org.example.constant;
 
-import org.apache.kafka.common.protocol.types.Field;
-
 /**
  * 授权需要使用的常量信息
  */

@@ -18,7 +18,7 @@ public class HeaderTokenGatewayFilter implements GatewayFilter, Ordered {
         //从http header中寻找key为token，value为imooc的键值对
         String name = exchange.getRequest().getHeaders().getFirst("imooc");
         if ("imooc".equals(name)){
-            chain.filter(exchange);
+            return chain.filter(exchange);
         }
 
         //标记此次请求没有权限并结束此次请求

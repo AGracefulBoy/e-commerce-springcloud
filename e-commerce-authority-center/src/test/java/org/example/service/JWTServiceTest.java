@@ -2,8 +2,6 @@ package org.example.service;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.protocol.types.Field;
-import org.checkerframework.checker.units.qual.A;
 import org.example.util.TokenParseUtil;
 import org.example.vo.LoginUserInfo;
 import org.junit.Test;
