@@ -2,3 +2,13 @@
 
 GET http://localhost:8000/ecommerce-nacos-client/nacos-client/service-instance
 Accept: application/json
+
+###
+GET http://localhost:9001/imooc/ecommerce-nacos-client/sleuth/trace-info
+Accept:application/json
+e-commerce-user: eyJhbGciOiJSUzI1NiJ9.eyJlLWNvbW1lcmNlLXVzZXIiOiJ7XCJpZFwiOjE4LFwibmFtZVwiOlwiemdiXCJ9IiwianRpIjoiNWVkNjQ2OTItMTY3Yy00N2YwLTllMzQtNWFhN2YyOTZmODI5IiwiZXhwIjoxNjM5NDExMjAwfQ.Z0apMRRu0qccXd_2sGSzdxZOIPhhCw-bM2fdorJtDKFAGDtmkk9mk4DJRaJkgWO2SqWgJxWWkcsjBlbWM_N0CcT7sKdv_38_jQ98F7pjN829HHc3PQ0_v8Ow0r7HzOk2Xo3dQPrgFoYVcoWpJMkXFB1vLkqEo5Qe4xXUv5i6Axebh9lB9qd_GL5i0z0dapTaocAKLY6T5uNkuIqUjx6L60jnniaQMJp0yKdht18QKKe_5flP48LAa-ZkBltEoxY0xSgFUQI2b91RAuLU24a_1WOxKwa1EKfvVUrDgjs5R1onuxqbldssp7RxVaAIuwm-YIUk_R9s1KlyQA_FW1t3Jg
+token: imooc
+
+###
+GET http://localhost:8000/ecommerce-nacos-client/sleuth/trace-info
+Accept:application/json
