@@ -3,10 +3,13 @@ java -jar zipkin.jar --STORAGE_TYPE=mysql --MYSQL_HOST=110.42.251.10 --MYSQL_TCP
 zipkin 启动
 java -DKAFKA_BOOTSTRAP_SERVER=172.0.0.1:9092 -jar zipkin-server-2.21.7-exec.jar --STORAGE_TYPE=mysql --MYSQL_HOST=110.42.251.10 --MYSQL_TCP_PORT=3306 --MYSQL_USER=root --MYSQL_PASS=123456 --MYSQL_DB=imooc_zipkin
 
+
+docker run  -d --name zipkin -ip 9411:9411 --restart=always -e KAFKA_BOOTSTRAP_SERVERS=110.42.251.10:9092 -e STORAGE_TYPE=mysql -e MYSQL_HOST=110.42.251.10 -e MYSQL_TCP_PORT=3306 -e MYSQL_USER=root -e MYSQL_PASS=123456 -e MYSQL_DB=imooc_zipkin openzipkin/zipkin:2.21.7
+
 zipkin下载地址
 https://repo1.maven.org/maven2/io/zipkin/zipkin-server/2.21.7/
 
 kafka启动
 
-bin/zookeeper-server-start.sh config/zookeeper.properties
-bin/kafka-server-start.sh config/server.properties
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+bin/kafka-server-start.sh -daemon config/server.properties

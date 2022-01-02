@@ -20,7 +20,7 @@ spring:
         namespace: 4bae180f-4b87-4ac7-9ef9-e719158dd7a4
         file-extension: yaml
   kafka:
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: 110.42.251.10:9092
     producer:
       retries: 3
     consumer:
@@ -34,7 +34,7 @@ spring:
     zipkin:
       sender:
         type: kafka # 默认是 web
-      base-url: http://localhost:9411/
+      base-url: 110.42.251.10：9411/
 
 # 暴露端点
 management:

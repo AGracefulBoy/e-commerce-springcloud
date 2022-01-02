@@ -1,6 +1,6 @@
-package com.example.conf;
+package org.example.conf;
 
-import com.example.filter.LoginUserInfoInterceptor;
+import org.example.filter.LoginUserInfoInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

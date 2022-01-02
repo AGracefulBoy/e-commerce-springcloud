@@ -1,0 +1,22 @@
+### 创建用户地址信息
+POST http://127.0.0.1:9001/imooc/ecommerce-account-service/address/createAddress
+Content-Type: application/json
+e-commerce-user: eyJhbGciOiJSUzI1NiJ9.eyJlLWNvbW1lcmNlLXVzZXIiOiJ7XCJpZFwiOjE4LFwibmFtZVwiOlwiemdiXCJ9IiwianRpIjoiMjRmZjRlYTUtNzNjMi00Yzc5LThmMmYtMGE1ZWRlYWRmNzUwIiwiZXhwIjoxNjQxMTM5MjAwfQ.NuHim-W7e0s7BOPSLo96XFoflaRC4N3DZcO_ouCMky3kWmhywEVNWkysm7rfYplerBLNpA9FgEZ51Qj4-tID1HL87XysE6cO-LEsVq1rx5kMfJC9HsjzdkVjDqVIiAFC7WdkJybgIW5rg7_SGm-U6bruuC1uC2MBgaJ1glTXzoLOvIZ9XwPU_HPcXJCgPMW-1Wkb_sPJY_sgW_FV6pqvVrDsQgpUerkuz31g0epwofjxkd76zaSGL9iQLVc8yyZO5X7vcR0V6u0-ns-K1nv8u3JYbHNLsZnK8zR_vkYAMwi2wPvRY8xpxeeLouAdlzGdpcl8jf4UoH1kYbP2E3ybWg
+
+{
+  "userId": 18,
+  "addressItems": [
+    {
+      "username": "zgb",
+      "phone": "123456",
+      "province": "上海",
+      "city": "上海",
+      "addressDetail": "黄埔区"
+    }
+  ]
+}
+
+### 当前登录用户的地址信息
+GET http://127.0.0.1:9001/imooc/ecommerce-account-service/address/current-address
+Content-Type: application/json
+e-commerce-user: eyJhbGciOiJSUzI1NiJ9.eyJlLWNvbW1lcmNlLXVzZXIiOiJ7XCJpZFwiOjE4LFwibmFtZVwiOlwiemdiXCJ9IiwianRpIjoiMjRmZjRlYTUtNzNjMi00Yzc5LThmMmYtMGE1ZWRlYWRmNzUwIiwiZXhwIjoxNjQxMTM5MjAwfQ.NuHim-W7e0s7BOPSLo96XFoflaRC4N3DZcO_ouCMky3kWmhywEVNWkysm7rfYplerBLNpA9FgEZ51Qj4-tID1HL87XysE6cO-LEsVq1rx5kMfJC9HsjzdkVjDqVIiAFC7WdkJybgIW5rg7_SGm-U6bruuC1uC2MBgaJ1glTXzoLOvIZ9XwPU_HPcXJCgPMW-1Wkb_sPJY_sgW_FV6pqvVrDsQgpUerkuz31g0epwofjxkd76zaSGL9iQLVc8yyZO5X7vcR0V6u0-ns-K1nv8u3JYbHNLsZnK8zR_vkYAMwi2wPvRY8xpxeeLouAdlzGdpcl8jf4UoH1kYbP2E3ybWg
