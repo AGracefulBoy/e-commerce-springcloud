@@ -34,7 +34,7 @@ public class SwaggerConfig {
                 //选择展示哪些接口
                 .select()
                 //只有 com.example 包内的才去展示
-                .apis(RequestHandlerSelectors.basePackage("com.example"))
+                .apis(RequestHandlerSelectors.basePackage("org.example"))
                 .paths(PathSelectors.any())
                 .build();
     }
