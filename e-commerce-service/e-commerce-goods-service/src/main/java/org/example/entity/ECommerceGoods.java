@@ -1,5 +1,6 @@
 package org.example.entity;
 
+import com.alibaba.fastjson.JSON;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import org.example.constant.GoodsStatus;
 import org.example.converter.BrandCategoryConverter;
 import org.example.converter.GoodsCategoryConverter;
 import org.example.converter.GoodsStatusConverter;
+import org.example.goods.GoodsInfo;
+import org.example.goods.SimpleGoodsInfo;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -86,4 +89,58 @@ public class ECommerceGoods {
     @LastModifiedDate
     @Column(name = "update_time", nullable = false)
     private Date updateTime;
+
+    public static ECommerceGoods to(GoodsInfo goodsInfo){
+        ECommerceGoods ecommerceGoods = new ECommerceGoods();
+        ecommerceGoods.setGoodsCategory(GoodsCategory.of(goodsInfo.getGoodsCategory()));
+        ecommerceGoods.setBrandCategory(BrandCategory.of(goodsInfo.getBrandCategory()));
+        ecommerceGoods.setGoodsName(goodsInfo.getGoodsName());
+        ecommerceGoods.setGoodsPic(goodsInfo.getGoodsPic());
+        ecommerceGoods.setGoodsDescription(goodsInfo.getGoodsDescription());
+        ecommerceGoods.setGoodsStatus(GoodsStatus.ONLINE);
+        ecommerceGoods.setPrice(goodsInfo.getPrice());
+        ecommerceGoods.setSupply(goodsInfo.getSupply());
+        ecommerceGoods.setInventory(goodsInfo.getInventory());
+        ecommerceGoods.setGoodsProperty(
+                JSON.toJSONString(goodsInfo.getGoodsProperty())
+        );
+        return ecommerceGoods;
+    }
+
+    /**
+     * 将实体对象转为 GoodsInfo对象
+     * @return
+     */
+    public GoodsInfo toGoodsInfo(){
+        GoodsInfo goodsInfo = new GoodsInfo();
+        goodsInfo.setId(this.id);
+        goodsInfo.setGoodsCategory(this.goodsCategory.getCode());
+        goodsInfo.setBrandCategory(this.brandCategory.getCode());
+        goodsInfo.setGoodsPic(this.goodsPic);
+        goodsInfo.setGoodsName(this.getGoodsName());
+        goodsInfo.setGoodsDescription(this.getGoodsDescription());
+        goodsInfo.setGoodsStatus(this.getGoodsStatus().getStatus());
+        goodsInfo.setPrice(this.price);
+        goodsInfo.setGoodsProperty(
+                JSON.parseObject(this.goodsProperty,GoodsInfo.GoodsProperty.class)
+        );
+        goodsInfo.setSupply(this.supply);
+        goodsInfo.setInventory(this.inventory);
+        goodsInfo.setCreateTime(this.createTime);
+        goodsInfo.setUpdateTime(this.updateTime);
+        return goodsInfo;
+    }
+
+    /**
+     * 将实体对象进行转换
+     * @return
+     */
+    public SimpleGoodsInfo toSimpleInfo(){
+        SimpleGoodsInfo simpleGoodsInfo = new SimpleGoodsInfo();
+        simpleGoodsInfo.setId(this.id);
+        simpleGoodsInfo.setGoodsName(this.getGoodsName());
+        simpleGoodsInfo.setGoodsPic(this.getGoodsPic());
+        simpleGoodsInfo.setPrice(this.price);
+        return simpleGoodsInfo;
+    }
 }
