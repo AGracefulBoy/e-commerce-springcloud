@@ -55,7 +55,7 @@ spring:
       pool-name: ImoocCouponHikariCP
   redis:
     database: 0
-    host: 110.42.251.10
+    host: 47.110.63.176
     port: 6379
     # password:
     # 连接超时时间
