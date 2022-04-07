@@ -21,7 +21,7 @@ public class EcommerceUserTest {
     @Autowired
     private EcommerceUserDao ecommerceUserDao;
 
-    @Test
+    //@Test
     public void createUserRecord(){
         EcommerceUser ecommerceUser = new EcommerceUser();
         ecommerceUser.setUsername("zhoudashuai.com");

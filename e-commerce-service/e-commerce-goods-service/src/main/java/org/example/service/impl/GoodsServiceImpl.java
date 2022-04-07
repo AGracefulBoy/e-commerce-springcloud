@@ -84,7 +84,10 @@ public class GoodsServiceImpl implements IGoodsService {
         //redis 中的kv都是字符串
         List<Object> goodIds = tableId.getIds().stream().map(i -> i.getId().toString()).collect(Collectors.toList());
         List<Object> cachedSimpleGoodsInfo = redisTemplate.opsForHash()
-                .multiGet(GoodsConstant.ECOMMERCE_GOODS_DICT_KEY, goodIds);
+                .multiGet(GoodsConstant.ECOMMERCE_GOODS_DICT_KEY, goodIds)
+                .stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
 
         //如果从redis中查到了商品信息，分两种情况取操作
         if (CollectionUtils.isNotEmpty(cachedSimpleGoodsInfo)) {

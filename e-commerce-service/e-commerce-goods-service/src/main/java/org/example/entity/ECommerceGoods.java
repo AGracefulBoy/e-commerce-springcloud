@@ -100,7 +100,7 @@ public class ECommerceGoods {
         ecommerceGoods.setGoodsStatus(GoodsStatus.ONLINE);
         ecommerceGoods.setPrice(goodsInfo.getPrice());
         ecommerceGoods.setSupply(goodsInfo.getSupply());
-        ecommerceGoods.setInventory(goodsInfo.getInventory());
+        ecommerceGoods.setInventory(goodsInfo.getSupply());
         ecommerceGoods.setGoodsProperty(
                 JSON.toJSONString(goodsInfo.getGoodsProperty())
         );
