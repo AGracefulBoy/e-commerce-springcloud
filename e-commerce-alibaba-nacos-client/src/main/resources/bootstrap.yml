@@ -36,6 +36,7 @@ spring:
         type: kafka # 默认是 web
       base-url: 110.42.251.10：9411/
 
+
 # 暴露端点
 management:
   endpoints:
@@ -45,3 +46,16 @@ management:
   endpoint:
     health:
       show-details: always
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 1024
+    response:
+      enabled: true
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
