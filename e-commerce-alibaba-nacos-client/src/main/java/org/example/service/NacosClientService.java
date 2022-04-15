@@ -16,7 +16,7 @@ public class NacosClientService {
         this.discoveryClient = discoveryClient;
     }
 
-    public List<ServiceInstance> getNacosClienInfo(String serviceId){
+    public List<ServiceInstance> getNacosClientInfo(String serviceId){
         //测试 UseHystrixCommandAnnotation的超时
         try {
             Thread.sleep(2000);

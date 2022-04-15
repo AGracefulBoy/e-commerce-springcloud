@@ -22,7 +22,7 @@ public class NacosClientController {
     @GetMapping("/service-instance")
     public List<ServiceInstance> logNacosClientInfo(@RequestParam(defaultValue = "e-commerce-nacos-client") String serviceId){
         log.info("service: [{}]",serviceId);
-        return nacosClientService.getNacosClienInfo(serviceId);
+        return nacosClientService.getNacosClientInfo(serviceId);
     }
 
 }

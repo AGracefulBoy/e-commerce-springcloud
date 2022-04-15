@@ -59,7 +59,7 @@ public class UseHystrixCommandAnnotation {
     public List<ServiceInstance> getNacosClientInfo(String serviceId){
         log.info("use hystrix command annotation get nacos client info: [{}],[{}]",
                 serviceId,Thread.currentThread().getName());
-        return nacosClientService.getNacosClienInfo(serviceId);
+        return nacosClientService.getNacosClientInfo(serviceId);
     }
 
     /**
