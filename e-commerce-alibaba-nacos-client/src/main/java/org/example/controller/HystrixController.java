@@ -3,6 +3,7 @@ package org.example.controller;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.example.service.NacosClientService;
+import org.example.service.hyxtrix.CacheHystrixCommand;
 import org.example.service.hyxtrix.NacosClientHystrixCommand;
 import org.example.service.hyxtrix.NacosClientHystrixObservableCommand;
 import org.example.service.hyxtrix.UseHystrixCommandAnnotation;
@@ -113,5 +114,31 @@ public class HystrixController {
         });
         log.info("observable command result is : [{}],[{}]",JSON.toJSONString(result),Thread.currentThread().getName());
         return result.get(0);
+    }
+
+    @GetMapping("/cache-hystrix-command")
+    public void cacheHystrixCommand(@RequestParam String serviceId){
+        // 使用缓存command发起两次请求
+        CacheHystrixCommand command1 = new CacheHystrixCommand(nacosClientService,serviceId);
+        CacheHystrixCommand command2 = new CacheHystrixCommand(nacosClientService,serviceId);
+
+        List<ServiceInstance> execute = command1.execute();
+        List<ServiceInstance> execute2 = command2.execute();
+
+        log.info("result01,result03: [{}],[{}]",
+                JSON.toJSONString(execute),JSON.toJSONString(execute2));
+
+        CacheHystrixCommand.flushRequestCache(serviceId);
+
+        // 使用缓存command发起两次请求
+        CacheHystrixCommand command3 = new CacheHystrixCommand(nacosClientService,serviceId);
+        CacheHystrixCommand command4 = new CacheHystrixCommand(nacosClientService,serviceId);
+
+        List<ServiceInstance> execute3 = command1.execute();
+        List<ServiceInstance> execute4 = command2.execute();
+
+        log.info("result01,result03: [{}],[{}]",
+                JSON.toJSONString(execute3),JSON.toJSONString(execute4));
+
     }
 }
