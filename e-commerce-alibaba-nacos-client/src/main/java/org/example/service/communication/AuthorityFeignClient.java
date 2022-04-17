@@ -1,5 +1,6 @@
 package org.example.service.communication;
 
+import org.example.service.communication.hystrix.AuthorityFeignClientFallback;
 import org.example.vo.JwtToken;
 import org.example.vo.UserAndPassword;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author zhoudashuai
  * @date 2022年04月11日 9:44 下午
  */
-@FeignClient(contextId = "AuthorityFeignClient",value = "e-commerce-authority-center")
+@FeignClient(
+        contextId = "AuthorityFeignClient",value = "e-commerce-authority-center",
+        fallback = AuthorityFeignClientFallback.class
+)
 public interface AuthorityFeignClient {
 
     /**
