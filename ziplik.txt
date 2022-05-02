@@ -13,3 +13,16 @@ kafka启动
 
 bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 bin/kafka-server-start.sh -daemon config/server.properties
+
+RocketMQ
+cd /Users/zhouguobing/Downloads/rocketmq-all-4.9.0-bin-release
+nohup sh bin/manamesrc &
+
+tail -f ~/logs/rocketmqlogs/namesrv.log
+
+nohup sh bin/mqbroker -n localhost:9876 &
+
+
+sh bin/mqshutdown broker
+
+sh bin/mqshutdown namesrv
